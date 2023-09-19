@@ -16,5 +16,10 @@ def if_example():
 def if_username(username):
     name = escape(username)
     return render_template("if.html",title="If example 2",username=name)
+
+@app.route("/loop")
+def loop():
+    members= ["Abdalle","Khadar","Iljas","Hibak","Kaltun"]
+    return render_template("loop.html",title="Loops",members=members)
     
 app.run("127.0.0.1", port=8080)
