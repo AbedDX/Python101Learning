@@ -1,0 +1,4 @@
+1,The Shadow in the Vale,Henry,False
+2,Fool's Mask,Tommy Freeman,False
+3,The Children of the Empire,Diana Dale,False
+4,Duck Tales,Aku Ankka,False
