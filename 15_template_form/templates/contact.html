@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+<div style="margin:auto;width:40%;background-color:lightgreen;text-align:center">
+<form action="/result" method="POST">
+	<label for="name" class="form-label">Name:</label>
+	<input type="text"
+			name="name"
+			class="form-control"
+			id="name"/>
+	<label for="address" class="form-label">Address:</label>
+	<input type="text"
+			name="address"
+			class="form-control"
+			id="address"/>
+	<label for="city" class="form-label">City:</label>
+	<input type="text"
+			name="city"
+			class="form-control"
+			id="city"/>
+	<label for="email" class="form-label">Email:</label>
+	<input type="email"
+			name="email"
+			class="form-control"
+			id="email"/>
+	<input type="submit" class="btn btn-primary" value="Add"/>
+</form>
+</div>
+{% endblock %}
