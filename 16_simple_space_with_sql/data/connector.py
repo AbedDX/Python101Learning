@@ -12,6 +12,10 @@ get_contacts_sql = "SELECT * FROM contacts"
 
 add_new_data_sql = "INSERT INTO contacts(firstname,lastname,email,phone) VALUES(?,?,?,?)"
 
+remove_row_sql = "DELETE FROM contacts WHERE id=?"
+
+edit_row_sql = "EDIT FROM contacts WHERE id=?"
+
 def get_connection():
     conn = None
     try:
@@ -56,4 +60,31 @@ def add_new_contact(data):
         return "Success"
     except:
         print("Failed to add new contact")
+        return None
+        
+def remove_contact(id):
+    conn = get_connection()
+    if conn == None:
+        return None
+    try:
+        c = conn.cursor()
+        c.execute(remove_row_sql,(id,))
+        conn.commit()
+        return "Success"
+    except:
+        print("Failed to remove contact")
+        return None
+
+def edit_contact(data,id):
+    conn = get_connection()
+    if conn == None:
+        return None
+    try:
+        c = conn.cursor()
+        data_tuple=(data["firstname"],data["lastname"],data["email"],data["phone"], id)
+        c.execute(edit_row_sql,data_tuple)
+        conn.commit()
+        return "Success"
+    except:
+        print("Failed to edit contact")
         return None
