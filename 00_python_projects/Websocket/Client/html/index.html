@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Client Chat</title>
+</head>
+<body>
+    <h1>Client Chat</h1>
+    <div id="chat-box"></div>
+    <input type="text" id="message" placeholder="Type a message...">
+    <button onclick="sendMessage()">Send</button>
+    <script>
+        function sendMessage() {
+            const message = document.getElementById("message").value;
+            document.getElementById("chat-box").innerHTML += `<p>You: ${message}</p>`;
+            // Implement code to send the message to the server here
+            // Send the message to the server using JavaScript fetch or WebSocket.
+            // You need to implement this part.
+            // Can be improve upon the UI chat box.
+        }
+    </script>
+</body>
+</html>
+
+

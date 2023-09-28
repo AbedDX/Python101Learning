@@ -1,4 +1,9 @@
-FROM pyhton:3.10
+FROM python:3
 
-COPY server.py /app/server.py
-CMD [ "python", "/app/server.py"]
+WORKDIR /app
+COPY Server.py .
+COPY html/ html/
+COPY requirements.txt requirements.txt
+RUN pip install -r requirements.txt
+
+CMD [ "python", "Server.py"]

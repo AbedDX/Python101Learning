@@ -1,0 +1,8 @@
+version: '3'
+services:
+  server:
+    image: chat-server
+    ports:
+      - "15000:15000"
+  client:
+    image: chat-client
