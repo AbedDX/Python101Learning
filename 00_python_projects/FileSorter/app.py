@@ -9,7 +9,7 @@ categories = {
     "Archives": ["zip", "rar", "7z", "tar", "gz"],
     "Software": ["exe", "msi"],
     "Videos": ["mp4", "avi", "mkv", "mov"],
-    "Documents": ["pdf", "docx", "xlsx", "pptx"],
+    "Documents": ["pdf", "docx", "xlsx", "pptx","txt"],
     "Music": ["mp3", "wav", "flac", "ogg"],
 }
 

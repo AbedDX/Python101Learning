@@ -1,8 +1,25 @@
 version: '3'
 services:
-  server:
-    image: chat-server
+  chat_server:
+    build:
+      context: ./Server
     ports:
-      - "15000:15000"
-  client:
-    image: chat-client
+      - "80:80"
+    volumes:
+      - ./Server:/app
+    networks:
+      - chat_network
+
+  chat_client:
+    build:
+      context: ./Client
+    depends_on:
+      - chat_server
+    volumes:
+      - ./Client:/app
+    networks:
+      - chat_network
+
+networks:
+  chat_network:
+

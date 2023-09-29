@@ -13,18 +13,22 @@ app = Flask(__name__)
 def index():
     return render_template('index.html')
 
-client_socket, client_address = server.accept()
-print(f"Connection from {client_address}")
+def handle_client(client_socket):
+    while True:
+        message = client_socket.recv(1024).decode()
+        if not message:
+            break
+        print(f"Client: {message}")
+        response = input("You: ")
+        client_socket.send(response.encode())
+    client_socket.close()
 
-while True:
-    message = client_socket.recv(1024).decode()
-    if not message:
-        break
-    print(f"Client: {message}")
-    response = input("You: ")
-    client_socket.send(response.encode())
-
-client_socket.close()
+@app.route('/chat', methods=['POST'])
+def chat():
+    client_socket, client_address = server.accept()
+    print(f"Connection from {client_address}")
+    handle_client(client_socket)
+    return "Chat finished."
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=80)
+    app.run(host='0.0.0.0', port= 80)

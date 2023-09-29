@@ -1,5 +1,2 @@
 Flask
-MarkupSafe
-itsdangerous
-psutly
-tenacity
+psutil
