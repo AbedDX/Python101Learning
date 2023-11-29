@@ -1,0 +1,20 @@
+version: '3'
+services:
+  server:
+    build:
+      context: ./Server
+    ports:
+      - "15000:15000"
+    networks:
+      - my-network
+
+  client:
+    build:
+      context: ./Client
+    depends_on:
+      - server
+    networks:
+      - my-network
+
+networks:
+  my-network:
